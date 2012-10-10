@@ -1,3 +1,3 @@
 = Graffity
 
-This project rocks and uses MIT-LICENSE.
+Still a spike right now, but could be usefull! Feel free to fork and submit pull requests!
