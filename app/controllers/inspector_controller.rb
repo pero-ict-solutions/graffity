@@ -1,3 +1,4 @@
+require 'coderay'
 class InspectorController < ApplicationController
   layout "graffity_layout"
 

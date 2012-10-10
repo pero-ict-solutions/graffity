@@ -28,15 +28,13 @@ module Graffity
       end
 
       ActiveSupport::Notifications.subscribe "start_processing.action_controller" do |name, start, finish, id, payload|
-        Rails.logger.debug ["[Notification] ", id, name, payload.inspect].join(" ")
+        #Rails.logger.debug ["[Notification] ", id, name, payload.inspect].join(" ")
         controller = payload[:controller]
         unless controller === "InspectorController"
           Graffity::Action.delete
           Graffity::Template.delete
-
           action = payload[:action]
           the_action = Graffity::Action.where(:name => action, :controller => controller).first
-          Rails.logger.debug ["[Notification CONT] ", controller].join(" ")
           if the_action
             the_action.update(:req_id => id, :start => start, :finish => finish)
           else
@@ -46,7 +44,7 @@ module Graffity
       end
 
       ActiveSupport::Notifications.subscribe /^render_/ do |name, start, finish, id, payload|
-        Rails.logger.debug ["[Notification] ", id, name, payload.inspect].join(" ")
+        #Rails.logger.debug ["[Notification] ", id, name, payload.inspect].join(" ")
         identifier = payload[:identifier]
         virtual_path = identifier[/app\/views\/(.*)/,1].split('.').first
         action = Graffity::Action.where(:req_id => id)
