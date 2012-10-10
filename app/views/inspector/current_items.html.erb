@@ -1,0 +1,47 @@
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Layout</li>
+    <li><a href="<%=coderay_path(@graffity_template.id)%>" data-toggle="modal" data-target="#myModal"><%= @graffity_template.layout %></a>
+      <ul class="nav nav-list">
+        <li class="nav-header">Overrides</li>
+        <% for override in Deface::Override.find({:virtual_path => @graffity_template.layout }) -%>
+          <li><a href="#"><%= override.name %></a></li>
+        <% end -%>
+      </ul>
+    </li>
+    <li class="nav-header">Template</li>
+    <li><a href="<%=coderay_path(@graffity_template.id)%>" data-toggle="modal" data-target="#myModal"><%= @graffity_template.virtual_path %></a>
+      <% if Deface::Override.find({:virtual_path => @graffity_template.virtual_path }).count > 0%>
+        <ul class="nav nav-list">
+          <li class="nav-header">Overrides</li>
+          <% for override in Deface::Override.find({:virtual_path => @graffity_template.virtual_path }) -%>
+            <li><a href="#"><%= override.name %></a></li>
+          <% end -%>
+        </ul>
+      <% end %>
+    </li>
+    <li class="nav-header">Partials</li>
+    <% for partial in @graffity_partials -%>
+      <li><a href="<%=coderay_path(partial.id)%>" data-toggle="modal" data-target="#myModal"><%= partial.virtual_path %></a>
+
+        <% if Deface::Override.find({:virtual_path => partial.virtual_path }).count > 0%>
+          <ul class="nav nav-list">
+            <li class="nav-header">Overrides</li>
+            <% for override in Deface::Override.find({:virtual_path => partial.virtual_path }) -%>
+              <li><a href="#"><%= override.name %></a></li>
+            <% end -%>
+          </ul>
+        <% end %>
+      </li>
+    <% end -%>
+  </ul>
+</div><!--/.well -->
+
+<div id="myModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>View information</h3>
+  </div>
+  <div class="modal-body" style="overflow:auto">
+  </div>
+</div>
