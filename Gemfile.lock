@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    graffity (0.0.1)
+    graffity (0.0.2)
       coderay
       deface
       rails (~> 3.2.8)
