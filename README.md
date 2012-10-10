@@ -12,7 +12,7 @@ Installation
 
 In your Gemfile:
 
-    gem 'graffity', :git => 'git://github.com/pero-ict-solutions/graffity.git', :group => :development
+    gem 'graffity', :group => :development
 
 Then run from the command line:
 
