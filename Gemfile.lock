@@ -6,6 +6,7 @@ PATH
       deface
       rails (~> 3.2.8)
       sequel
+      sqlite3
 
 GEM
   remote: http://rubygems.org/
@@ -103,4 +104,3 @@ PLATFORMS
 DEPENDENCIES
   graffity!
   jquery-rails
-  sqlite3
