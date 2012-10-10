@@ -7,11 +7,11 @@ require "graffity/version"
 Gem::Specification.new do |s|
   s.name        = "graffity"
   s.version     = Graffity::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Graffity."
-  s.description = "TODO: Description of Graffity."
+  s.authors     = ["Peter Berkenbosch"]
+  s.email       = ["peter@pero-ict.nl"]
+  s.homepage    = "https://github.com/pero-ict-solutions/graffity"
+  s.summary     = "Development tool to render a view stack"
+  s.description = ""
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.8"
   s.add_dependency "sequel"
   s.add_dependency "coderay"
-  # s.add_dependency "jquery-rails"
+  s.add_dependency "deface"
 
   s.add_development_dependency "sqlite3"
 end
